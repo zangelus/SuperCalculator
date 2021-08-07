@@ -25,6 +25,6 @@ public class F6 {
     }
     
     public double calculate(){
-        return Math.factorial(_x-1)*Math.factorial(_y-1)/Math.factorial(_x+_y-1);
+        return Math.calculateFactorial(_x-1)*Math.calculateFactorial(_y-1)/Math.calculateFactorial(_x+_y-1);
     }
 }
