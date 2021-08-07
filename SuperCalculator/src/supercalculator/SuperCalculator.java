@@ -5,6 +5,8 @@
  */
 package supercalculator;
 
+import javax.swing.*;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -24,8 +26,8 @@ public class SuperCalculator {
             
         while (true) {
 
-            System.out.println("Enter a function numer");
-            System.out.println("1 F1");
+            System.out.println("Enter a function number");
+            System.out.println("1 Tan(x)");
             System.out.println("3 F3");
             System.out.println("6 Beta(x,y)");
             System.out.println("0 to exit");
@@ -40,8 +42,11 @@ public class SuperCalculator {
             
             switch (selection) {
                 case 0:
-                    return;
+                    break;
                 case 1:
+                    Tan tanFunc = new Tan();
+                    tanFunc.getInput();
+                    break;
                 case 2:
                 case 3:
                 case 4:
@@ -76,5 +81,4 @@ public class SuperCalculator {
         }
 
     }
-
 }
