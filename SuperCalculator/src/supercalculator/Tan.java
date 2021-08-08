@@ -89,7 +89,7 @@ public class Tan {
                 answer = scanner.nextLine();
 
                 if (!(answer.equalsIgnoreCase("r") || answer.equalsIgnoreCase("d"))) {
-                    System.out.println("Please Enter R or D only");
+                    System.err.println("Please Enter R or D only");
                     continue;
                 }
 
@@ -108,8 +108,8 @@ public class Tan {
             try {
                 String input = scanner.nextLine();
 
-                if (!Math.isValueNumeric(input)) {
-                    System.out.println("Please enter a valid number");
+                if (!Math.isValueNumericDouble(input)) {
+                    System.err.println("Please enter a valid number");
                     continue;
                 }
 
@@ -119,12 +119,8 @@ public class Tan {
                 if ( (!isRadian && x > 360) || (isRadian && x > 2 * Math.PI)) {
                     continue;
                 }
-                System.out.println("___________________________________");
-                String result = String.format(" You answer is " + calculate(x, isRadian));
-                System.out.println(result);
-                System.out.println("___________________________________");
-                System.out.println();
-
+                double result = calculate(x, isRadian);
+                CalculatorUtils.getOutput(result);
                 break;
 
             } catch (Exception ex) {

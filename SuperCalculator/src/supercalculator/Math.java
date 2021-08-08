@@ -64,7 +64,7 @@ public final class Math {
      * Validates if a number is numeric
      *@param string  the numeric value in string format to be checked on
      */
-    public static boolean isValueNumeric(final String string) {
+    public static boolean isValueNumericDouble(final String string) {
         double value;
 
         if (string == null || string.equals("")) {
@@ -78,5 +78,38 @@ public final class Math {
             System.out.println(" your input can't be parsed to a number");
         }
         return false;
+    }
+
+    /**
+     * Validates if a number is numeric
+     *@param string  the numeric value in string format to be checked on
+     */
+    public static boolean isValueNumericInteger(final String string) {
+        double value;
+
+        if (string == null || string.equals("")) {
+            return false;
+        }
+
+        try {
+            value = Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println(" your input can't be parsed to a number");
+        }
+        return false;
+    }
+
+    /**
+     * Validates if a number is numeric
+     *@param num  the value to be rounded
+     * @param  places decimal places
+     */
+    public static double roundToDecimalPlaces(double num, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        String formattedNumber = String.format("%."+places+"f", num);
+
+        return Double.parseDouble(formattedNumber);
     }
 }
