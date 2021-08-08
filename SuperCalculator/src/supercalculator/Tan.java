@@ -26,7 +26,7 @@ public class Tan {
      * @param isRad Check if value is Radian or Degree
      */
     private double cos(final double value, final boolean isRad) {
-        var calculatedValue = (isRad) ? value : Math.convertDegToRad(value);
+        double calculatedValue = (isRad) ? value : Math.convertDegToRad(value);
         return calculateTaylorsSeries(calculatedValue, 1, 2);
     }
 
@@ -36,8 +36,8 @@ public class Tan {
      * @param isRad Check if value is Radian or Degree
      */
     private double sin(final double value, final boolean isRad) {
-        var sinStartingValue = 3;
-        var calculatedValue = (isRad) ? value : Math.convertDegToRad(value);
+        int sinStartingValue = 3;
+        double calculatedValue = (isRad) ? value : Math.convertDegToRad(value);
         return calculateTaylorsSeries(calculatedValue, calculatedValue, sinStartingValue);
     }
 
@@ -49,13 +49,13 @@ public class Tan {
      */
     public double calculateTaylorsSeries(final double calculatedValue,
                                          final double n, final int startingValue) {
-        final var iterations = 20;
-        var multiplier = 1;
-        var total = n;
+        final int iterations = 20;
+        int multiplier = 1;
+        double total = n;
 
         for (int i = startingValue; i < iterations; i += 2) {
             multiplier *= -1;
-            var nextTerm = Math.calculatePower(calculatedValue, i) / Math.calculateFactorial(i);
+            double nextTerm = Math.calculatePower(calculatedValue, i) / Math.calculateFactorial(i);
             total += multiplier * nextTerm;
         }
 
@@ -81,20 +81,19 @@ public class Tan {
      */
     public void getInput() {
         Scanner scanner = new Scanner(System.in);
-        boolean isRadian = false;
+        boolean isRadian;
         String answer;
         while (true) {
             System.out.println("Please enter the value type. Is it Radian (R) or Degree (D)");
             try {
                 answer = scanner.nextLine();
-                answer.toLowerCase();
 
-                if (!(answer.equals("r") || answer.equals("d"))) {
+                if (!(answer.equalsIgnoreCase("r") || answer.equalsIgnoreCase("d"))) {
                     System.out.println("Please Enter R or D only");
                     continue;
                 }
 
-                isRadian = (answer.toLowerCase().equals("r"));
+                isRadian = (answer.equalsIgnoreCase("r"));
                 break;
 
             } catch (Exception ex) {
@@ -102,7 +101,7 @@ public class Tan {
             }
         }
 
-        String msg = answer.equals("d") ? "Must be between  [ 0 and 360 ]" : "Must be between[ 0 and \u03C0 ]";
+        String msg = answer.equalsIgnoreCase("d") ? "Must be between  [ 0 and 360 ]" : "Must be between[ 0 and \u03C0 ]";
         while (true) {
 
             System.out.println("Please enter value x for the Tangent function " + msg);
@@ -114,18 +113,18 @@ public class Tan {
                     continue;
                 }
 
-                var x = Double.parseDouble(input);
+                double x = Double.parseDouble(input);
 
                 //checking if input is within limit
                 if ( (!isRadian && x > 360) || (isRadian && x > 2 * Math.PI)) {
                     continue;
                 }
-
+                System.out.println("___________________________________");
                 String result = String.format(" You answer is " + calculate(x, isRadian));
-
                 System.out.println(result);
-                System.lineSeparator();
-                System.lineSeparator();
+                System.out.println("___________________________________");
+                System.out.println();
+
                 break;
 
             } catch (Exception ex) {
