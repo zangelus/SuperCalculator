@@ -15,3 +15,6 @@
 
 ### Review activities of Team A
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![image](https://user-images.githubusercontent.com/1106716/128644827-e00a900e-d770-4d8f-8504-e4a8efc8ea16.png)
+
+## Summary of work done
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Excel file](https://docs.google.com/spreadsheets/d/1U-6mK7TmGKVfKDFfHAgBPVsoGKWgyPCGNGDFN6GJCqM/edit?usp=sharing)
