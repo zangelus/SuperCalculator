@@ -5,9 +5,9 @@
  */
 package supercalculator;
 
-import javax.swing.*;
-import java.util.Locale;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import static supercalculator.CalculatorUtils.printInvalidDomain;
 
 /**
  *
@@ -55,21 +55,22 @@ public class SuperCalculator {
                 case 6:
                     System.out.println("Entr values x and y separated by a whitespace");
                     try {
-                        
-                        int values[] = new int[2];
-                        int i = 0;
                         int x; 
                         int y;
                         
                         x = scanner.nextInt();
                         y = scanner.nextInt();
 
-                        F6 f6 = new F6(x,y);
-                        f6.isValidDomain();
-                        double result = f6.calculate();
-                        System.out.println(result);
+                        Beta beta = new Beta(x,y);
+                        beta.calculateInUi();
                         
-                    } catch (Exception ex) {
+                    } catch (InputMismatchException e) {
+                        
+                        printInvalidDomain("Only integers can be use, please try again");
+                        
+                    } catch (Exception e) {
+                        
+                        System.out.println(e.getMessage());
                         scanner.next();
                     }
                     break;
