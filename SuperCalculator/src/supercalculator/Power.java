@@ -30,7 +30,7 @@ public class Power {
 
         while (power > 0) {
             if(power & 1 == 1)
-                result = result * base;
+                result = result * b;
 
             b = b * b;
             power >>= 1;
