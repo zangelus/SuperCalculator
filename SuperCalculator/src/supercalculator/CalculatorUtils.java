@@ -47,4 +47,13 @@ public class CalculatorUtils {
         System.out.println();
         
     }
+    
+    public  static void printInvalidDomain(String message){
+        
+        System.out.println("___________________________________");
+        System.out.println(message);
+        System.out.println("___________________________________");
+        System.out.println();
+        
+    }
 }
