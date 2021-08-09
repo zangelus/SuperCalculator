@@ -37,7 +37,7 @@ public final class Math {
         if (n == 0 || n == 1) {
             return 1.0d;
         }
-
+        
         double result = n * calculateFactorial(n - 1);
         return result;
     }
@@ -51,36 +51,12 @@ public final class Math {
     }
 
     /**
-     * Calculates power of a double
+     * Calculates power of a number
      *@param value  number
      * @param n power
      */
     public static double calculatePower(final double value, final double n) {
         double power = 1;
-
-        for (int i = 0; i < n; i++) {
-            power = power * value;
-        }
-
-        return power;
-    }
-
-    /**
-     * Calculates power of a integers that are only positive
-     *@param value  number
-     * @param n power
-     */
-    public static int calculatePower(final int value, final int n) {
-
-        while (true) {
-            if (n < 0) {
-                System.out.println("Only Positive Numbers Please");
-                continue;
-            }
-            break;
-        }
-
-        int power = 1;
 
         for (int i = 0; i < n; i++) {
             power = power * value;
