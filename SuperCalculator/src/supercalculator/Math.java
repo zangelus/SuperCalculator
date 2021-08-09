@@ -29,6 +29,11 @@ public final class Math {
      *@param n integer to calculate its factorial
      */
     public static double calculateFactorial(final int n) {
+        
+        if (n < 0) {
+            return Double.NaN;
+        }
+        
         if (n == 0 || n == 1) {
             return 1.0d;
         }
