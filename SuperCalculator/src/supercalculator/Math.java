@@ -46,12 +46,36 @@ public final class Math {
     }
 
     /**
-     * Calculates power of a number
+     * Calculates power of a double
      *@param value  number
      * @param n power
      */
     public static double calculatePower(final double value, final double n) {
         double power = 1;
+
+        for (int i = 0; i < n; i++) {
+            power = power * value;
+        }
+
+        return power;
+    }
+
+    /**
+     * Calculates power of a integers that are only positive
+     *@param value  number
+     * @param n power
+     */
+    public static int calculatePower(final int value, final int n) {
+
+        while (true) {
+            if (n < 0) {
+                System.out.println("Only Positive Numbers Please");
+                continue;
+            }
+            break;
+        }
+
+        int power = 1;
 
         for (int i = 0; i < n; i++) {
             power = power * value;

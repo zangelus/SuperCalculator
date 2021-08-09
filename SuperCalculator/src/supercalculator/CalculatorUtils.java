@@ -12,8 +12,7 @@ public class CalculatorUtils {
     {
         while(true) {
 
-            System.out.println("Would you like to round the result to a given number of Decimal" +
-                    " places? please enter the number or (n) for No value must be > 0");
+            System.out.println("Please enter the number of decimal places. (n) for No. Value must be > 0");
             Scanner scannerInput = new Scanner(System.in);
             String choice = scannerInput.nextLine();
 
@@ -24,13 +23,12 @@ public class CalculatorUtils {
             {
                 try {
                     if (Integer.parseInt(choice) < 0  || choice.matches("^\\d+\\.\\d+") ) {
-                        System.err.println("Please enter a number > 0 and not a decimal number");
+                        System.err.println(" Please enter an Integer bigger than 0");
                         continue;
                     }
                 }catch(NumberFormatException ex){
-                    System.err.println("Please enter a number > 0 and not an decimal number");
+                    System.err.println(" Please enter an Integer bigger than 0");
                     continue;
-                    //request for well-formatted string
                 }
 
                 result = Math.roundToDecimalPlaces(result, Integer.parseInt(choice));
