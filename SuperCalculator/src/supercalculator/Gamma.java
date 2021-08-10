@@ -11,7 +11,7 @@ import java.util.*;
  * Gamma function for super calculator SOEN 6011
  */
 public class Gamma {
-   public static final double[] p = {676.5203681218851
+    public static final double[] p = {676.5203681218851
             ,-1259.1392167224028
             ,771.32342877765313
             ,-176.61502916214059
@@ -46,7 +46,7 @@ public class Gamma {
      */
     public static double simpleGamma(){
         double y;
-        if(real < 0.5){
+        if(real < 0.5 && real > 0){
             //reflection formula according to Lanczos approximation
             real -= 1;
             y = PI / (Math.sine(PI*real) * simpleGamma());
@@ -102,23 +102,19 @@ public class Gamma {
                     case 4:
                         System.exit(0);
                 }
-                double result = real;
+                double result;
                 if (real < 0)
                     System.out.println("Number has to be a positive real or complex number");
 
                 else {
                     result = simpleGamma();
                     result = CalculatorUtils.getOutput(result);
-                    System.out.println("___________________________________");
-                    System.out.println(" You answer is ");
 
                     if (imaginary <= EPSILON)
-                        System.out.println(result);
+                        CalculatorUtils.printInvalidDomain(result+"");
                     else
-                        System.out.println(result + " + " + imaginary);
+                        CalculatorUtils.printInvalidDomain(result + " + " + imaginary + "i");
 
-                    System.out.println("___________________________________");
-                    System.out.println();
                 }
             }
         }catch (InputMismatchException e){
