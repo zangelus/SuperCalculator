@@ -25,7 +25,6 @@ public class Power {
      * @param power The number to which the base is elevated to
      */
     public double calculate(double base, int power) {
-        /* TODO: Also must add unit tests */
         double result = 1; // Holds the result over the steps
         double b = base; // Keeps control of base multiplications
 
@@ -54,8 +53,7 @@ public class Power {
     /**
      * Handles user input and output
      */
-    public void getInput() {
-        Scanner scanner = new Scanner(System.in);
+    public void getInput(Scanner scanner) {
         double inputBase = 0;
         int inputPower = 0;
         double result = 0;
@@ -93,15 +91,11 @@ public class Power {
 
         /* Handle 0 to the power of 0 special case */
         if(inputBase == 0 && inputPower == 0) {
-            System.out.println("___________________________________");
-            System.out.println(" The answer is indeterminate");
-            System.out.println("___________________________________");
-            System.out.println();
+            CalculatorUtils.printInvalidDomain(" The answer is indeterminate");
+            
         } else {
             result = calculate(inputBase, inputPower);
             CalculatorUtils.getOutput(result);
         }
-        
-        scanner.close();
     }
 }
