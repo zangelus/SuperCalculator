@@ -29,7 +29,7 @@ public class Power {
         double result = 1; // Holds the result over the steps
         double b = base; // Keeps control of base multiplications
 
-        /* 0 elevated to any numnber greater than zero is 0 */
+        /* 0 elevated to any number greater than zero is 0 */
         if(base == 0) {
             return 0;
         }
@@ -40,7 +40,7 @@ public class Power {
         }
 
         while (power > 0) {
-            if(power & 1 == 1) {
+            if((power & 1) == 1) {
                 result = result * b;
             }
 
@@ -101,5 +101,7 @@ public class Power {
             result = calculate(inputBase, inputPower);
             CalculatorUtils.getOutput(result);
         }
+        
+        scanner.close();
     }
 }
