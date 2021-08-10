@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package supercalculator;
 
 import java.util.InputMismatchException;
@@ -11,7 +6,7 @@ import static supercalculator.CalculatorUtils.printInvalidDomain;
 
 /**
  *
- * @author za
+ * @author Nneamaka Adirika
  */
 public class SuperCalculator {
 
@@ -51,7 +46,8 @@ public class SuperCalculator {
                     tanFunc.getInput(scanner);
                     break;
                 case 2:
-                    System.out.println("Gamma function in progress");
+                    Gamma gammaFunc = new Gamma();
+                    gammaFunc.getInput(scanner);
                     break;
                 case 3:
                     Beta beta = new Beta();
