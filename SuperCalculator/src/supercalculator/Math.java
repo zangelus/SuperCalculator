@@ -1,13 +1,12 @@
-/*
+package supercalculator;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package supercalculator;
 
 /**
  *
- * @author za, Haitham Abdel-Salam
+ * @author za, Haitham Abdel-Salam, Nneamaka Adirika
  */
 public final class Math {
 
@@ -29,11 +28,6 @@ public final class Math {
      *@param n integer to calculate its factorial
      */
     public static double calculateFactorial(final int n) {
-        
-        if (n < 0) {
-            return Double.NaN;
-        }
-        
         if (n == 0 || n == 1) {
             return 1.0d;
         }
@@ -141,6 +135,43 @@ public final class Math {
 
         return Double.parseDouble(formattedNumber);
     }
-}
 
+    /**
+     * Calculates the sine of a double
+     * @param x the number to be calculated
+     * @return sine value of the double
+     */
+    public static double sine(double x){
+        double y;
+        y = x*PI/180;
+        int n = 10;
+        int i,j,fac;
+        double res = 0;
+        for(i=0; i<=n; i++){
+            fac = 1;
+            for(j=2; j<=2*i+1; j++){
+                fac*=j;
+            }
+            res+=calculatePower(-1.0,i)*calculatePower(y,2*i+1)/fac;
+        }
+        return res;
+    }
+    /**
+     * Calculates the square root of a double
+     * @param number the number to be calculated
+     * @return square root of the double
+     */
+    public static double squareRoot(double number) {
+        double t;
+
+        double sqrt = number / 2;
+
+        do {
+            t = sqrt;
+            sqrt = (t + (number / t)) / 2;
+        } while ((t - sqrt) != 0);
+
+        return sqrt;
+    }
+}
 

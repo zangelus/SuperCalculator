@@ -31,7 +31,7 @@ public class CalculatorUtils {
                     continue;
                 }
 
-                result = MyMath.roundToDecimalPlaces(result, Integer.parseInt(choice));
+                result = Math.roundToDecimalPlaces(result, Integer.parseInt(choice));
                 break;
             }
         }

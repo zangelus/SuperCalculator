@@ -21,6 +21,7 @@ public class Gamma {
             ,1.5056327351493116e-7};
     public static final double EPSILON = 1e-07;
     public static final double PI = 3.141592653589793;
+    public static final double E = 2.718281828459045;
     public static double real;
     public static double imaginary;
 
@@ -48,7 +49,7 @@ public class Gamma {
         if(real < 0.5){
             //reflection formula according to Lanczos approximation
             real -= 1;
-            y = PI / (java.lang.Math.sin(PI*real) * simpleGamma());
+            y = PI / (Math.sine(PI*real) * simpleGamma());
         }
         else {
             real -= 1;
@@ -57,7 +58,7 @@ public class Gamma {
                 x += p[i] / (real + i + 1);
             }
             double t = real + p.length - 0.5;
-            y = java.lang.Math.sqrt(2 * PI) * java.lang.Math.pow(t,real + 0.5) * java.lang.Math.exp(-t) * x;
+            y = Math.squareRoot(2 * PI) * Math.calculatePower(t,real + 0.5) * Math.calculatePower(E,-t) * x;
         }
         return y;
     }

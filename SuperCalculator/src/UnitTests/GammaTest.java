@@ -1,6 +1,7 @@
-package supercalculator;
+package UnitTests;
 
 import org.junit.Test;
+import supercalculator.Gamma;
 import static org.junit.Assert.assertEquals;
 
 /**
