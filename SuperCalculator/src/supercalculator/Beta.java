@@ -5,6 +5,8 @@
  */
 package supercalculator;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import static supercalculator.CalculatorUtils.getOutput;
 import static supercalculator.CalculatorUtils.printInvalidDomain;
 
@@ -22,11 +24,24 @@ public class Beta {
      * @param input1 First Integer value to calculate the beta function
      * @param input2 Second Integer value to calculate the beta function
      */
-    public Beta(int input1, int input2){
-        inputValue1 = input1;
-        inputValue2 = input2;
+    public Beta(int value1, int value2){
+        
+        inputValue1 = value1;
+        inputValue2 = value2;
     }
     
+    public Beta(){}
+  
+    public void getInput(Scanner scanner) {
+        
+        try {
+            System.out.println("Entr values x and y separated by a whitespace");
+            inputValue1 = scanner.nextInt();
+            inputValue2 = scanner.nextInt(); 
+        } catch (InputMismatchException e) {
+            printInvalidDomain("Only integers can be use, please try again");
+        }
+    }
     /**
      *
      * @return True if the domain is within the admissible domain range. Otherwise False.
@@ -46,7 +61,6 @@ public class Beta {
             getOutput(calculate());
         }
         catch( InvalidDomainException e){
-            
             printInvalidDomain("Invalid Domain, try again");
         }
     }

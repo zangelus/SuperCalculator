@@ -79,8 +79,8 @@ public class Tan {
     /**
      * Gets Input and produces prompts and checks for the user
      */
-    public void getInput() {
-        Scanner scanner = new Scanner(System.in);
+    public void getInput(Scanner scanner) {
+
         boolean isRadian;
         String answer = "";
         String msg = "";
