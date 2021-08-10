@@ -27,17 +27,18 @@ public class SuperCalculator {
         while (run) {
 
             System.out.println("Enter a function number");
-            System.out.println("1 Tan(x)");
-            System.out.println("3 F3");
-            System.out.println("6 Beta(x,y)");
-            System.out.println("7 Power(x,y)");
-            System.out.println("0 to exit");
+            System.out.println("1. Tan(x)");
+            System.out.println("2. Gamma(x,y)");
+            System.out.println("3. Beta(x,y)");
+            System.out.println("4. Power(x,y)");
+            System.out.println("0. Exit application");
 
             try {
                 scanner = new Scanner(System.in);
                 selection = scanner.nextInt();
 
             } catch (Exception ex) {
+                System.out.println(ex.getMessage());
                 scanner.next();
             }
 
@@ -50,24 +51,22 @@ public class SuperCalculator {
                     tanFunc.getInput(scanner);
                     break;
                 case 2:
+                    System.out.println("Gamma function in progress");
+                    break;
                 case 3:
-                case 4:
-                case 5:
-                    throw new Exception("function not implmented");
-                case 6:
-                    
                     Beta beta = new Beta();
                     beta.getInput(scanner);
-                    beta.calculateInUi();
                     break;
-                case 7:
-                	Power power = new Power();
-                	power.getInput(scanner);
-                	break;
+                case 4:
+                    Power power = new Power();
+                    power.getInput(scanner);
+                    break;
                 default:
                     break;
             }
         }
-        scanner.close();
+        if(scanner !=null){
+            scanner.close();
+        }
     }
 }

@@ -35,11 +35,14 @@ public class Beta {
     public void getInput(Scanner scanner) {
         
         try {
-            System.out.println("Entr values x and y separated by a whitespace");
+            System.out.println(Localization.betaEnterData_ENG);
+            
             inputValue1 = scanner.nextInt();
             inputValue2 = scanner.nextInt(); 
+            calculateInUi();
+            
         } catch (InputMismatchException e) {
-            printInvalidDomain("Only integers can be use, please try again");
+            printInvalidDomain(Localization.betaOnlyPositiveIntegers_ENG);
         }
     }
     /**
@@ -61,7 +64,7 @@ public class Beta {
             getOutput(calculate());
         }
         catch( InvalidDomainException e){
-            printInvalidDomain("Invalid Domain, try again");
+            printInvalidDomain(Localization.betaInvalidDomain_ENG);
         }
     }
     
@@ -73,7 +76,7 @@ public class Beta {
     public double calculate() throws InvalidDomainException{
         
         if(!isValidDomain()){
-            throw new InvalidDomainException("Beta Does not accept negative intergers");
+            throw new InvalidDomainException(Localization.betaNoNegativeDomain_ENG);
         }
 
         Double factor1 = Math.calculateFactorial(inputValue1 - 1);
@@ -108,7 +111,7 @@ public class Beta {
         }
         catch (ArithmeticException ae) {
             
-            System.out.println("ArithmeticException occured!");
+            System.out.println(Localization.genArithmeticException_ENG);
             result = Double.POSITIVE_INFINITY;
         }
 
