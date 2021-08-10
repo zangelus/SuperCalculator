@@ -84,7 +84,7 @@ public class Tan {
         boolean isRadian;
         String answer = "";
         String msg = "";
-
+        answer = scanner.nextLine();
         while (true) {
             System.out.println("Please enter the value type. Is it Radian (R) or Degree (D)");
             try {
