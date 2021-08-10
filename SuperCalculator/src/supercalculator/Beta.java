@@ -8,7 +8,7 @@ package supercalculator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import static supercalculator.CalculatorUtils.getOutput;
-import static supercalculator.CalculatorUtils.printInvalidDomain;
+import static supercalculator.CalculatorUtils.printOutputMessage;
 
 /**
  * Class use to calculate the Beta function of two integers bigger than 0
@@ -42,7 +42,7 @@ public class Beta {
             calculateInUi();
             
         } catch (InputMismatchException e) {
-            printInvalidDomain(Localization.betaOnlyPositiveIntegers_ENG);
+            printOutputMessage(Localization.betaOnlyPositiveIntegers_ENG);
         }
     }
     /**
@@ -64,7 +64,7 @@ public class Beta {
             getOutput(calculate());
         }
         catch( InvalidDomainException e){
-            printInvalidDomain(Localization.betaInvalidDomain_ENG);
+            printOutputMessage(Localization.betaInvalidDomain_ENG);
         }
     }
     

@@ -2,7 +2,7 @@ package supercalculator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static supercalculator.CalculatorUtils.printInvalidDomain;
+import static supercalculator.CalculatorUtils.printOutputMessage;
 
 /**
  *
