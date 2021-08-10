@@ -82,7 +82,9 @@ public class Tan {
     public void getInput() {
         Scanner scanner = new Scanner(System.in);
         boolean isRadian;
-        String answer;
+        String answer = "";
+        String msg = "";
+
         while (true) {
             System.out.println("Please enter the value type. Is it Radian (R) or Degree (D)");
             try {
@@ -101,25 +103,33 @@ public class Tan {
             }
         }
 
-        String msg = answer.equalsIgnoreCase("d") ? "Must be between  [ 0 and 360 ]" : "Must be between[ 0 and \u03C0 ]";
+        msg = answer.equalsIgnoreCase("d") ? "Must be between  [ 0 and 360 ]" : "Must be between[ 0 and \u03C0 ]";
         while (true) {
+
+            double result = 0d;
+            double x = 0d;
+            String input = "";
 
             System.out.println("Please enter value x for the Tangent function " + msg);
             try {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
 
                 if (!Math.isValueNumericDouble(input)) {
                     System.err.println("Please enter a valid number");
                     continue;
                 }
 
-                double x = Double.parseDouble(input);
+                x = Double.parseDouble(input);
 
                 //checking if input is within limit
-                if ( (!isRadian && x > 360) || (isRadian && x > 2 * Math.PI)) {
+                if ( (!isRadian && x > 360) || (!isRadian && x< 0)
+                                            || (isRadian && x > 360)
+                                            || (isRadian && x > 2 * Math.PI)) {
+
+                    System.err.println("Please enter a number between the constrains");
                     continue;
                 }
-                double result = calculate(x, isRadian);
+                result = calculate(x, isRadian);
                 CalculatorUtils.getOutput(result);
                 break;
 
