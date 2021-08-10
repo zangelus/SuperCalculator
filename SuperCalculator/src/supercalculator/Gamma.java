@@ -108,17 +108,12 @@ public class Gamma {
 
                 else {
                     result = simpleGamma();
-                    result = CalculatorUtils.getOutput(result);
-                    System.out.println("___________________________________");
-                    System.out.println(" You answer is ");
+                    CalculatorUtils.getOutput(result);
 
                     if (imaginary <= EPSILON)
                         System.out.println(result);
                     else
                         System.out.println(result + " + " + imaginary);
-
-                    System.out.println("___________________________________");
-                    System.out.println();
                 }
             }
         }catch (InputMismatchException e){

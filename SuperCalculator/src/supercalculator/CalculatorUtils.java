@@ -8,7 +8,7 @@ public class CalculatorUtils {
      * Gets standard function to prompt the user for rounding decimal across all functions and prints result, whith error check
      *@param result  final result that a function produces
      */
-    public  static double getOutput(double result)
+    public  static void getOutput(double result)
     {
         while(true) {
 
@@ -35,11 +35,11 @@ public class CalculatorUtils {
                 break;
             }
         }
-        return result;
+        printOutputMessage("The result is: " + result);
 
     }
     
-    public  static void printInvalidDomain(String message){
+    public static void printOutputMessage(String message){
         
         System.out.println("___________________________________");
         System.out.println(message);
