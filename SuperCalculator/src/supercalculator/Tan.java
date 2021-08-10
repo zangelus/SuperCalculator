@@ -79,8 +79,8 @@ public class Tan {
     /**
      * Gets Input and produces prompts and checks for the user
      */
-    public void getInput() {
-        Scanner scanner = new Scanner(System.in);
+    public void getInput(Scanner scanner) {
+
         boolean isRadian;
         String answer = "";
         String msg = "";
@@ -122,7 +122,7 @@ public class Tan {
                 x = Double.parseDouble(input);
 
                 //checking if input is within limit
-                if ( (!isRadian && x > 360) || (!isRadian && x< 0)
+                if ( (!isRadian && x > 360) || (!isRadian && x < 0)
                                             || (isRadian && x > 360)
                                             || (isRadian && x > 2 * Math.PI)) {
 

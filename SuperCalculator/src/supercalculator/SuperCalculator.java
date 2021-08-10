@@ -20,11 +20,11 @@ public class SuperCalculator {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        
+
         Scanner scanner = null;
         int selection = 0;
-            
-        while (true) {
+        Boolean run = true;
+        while (run) {
 
             System.out.println("Enter a function number");
             System.out.println("1 Tan(x)");
@@ -36,16 +36,17 @@ public class SuperCalculator {
                 scanner = new Scanner(System.in);
                 selection = scanner.nextInt();
 
-            } catch(Exception ex){
+            } catch (Exception ex) {
                 scanner.next();
             }
-            
+
             switch (selection) {
                 case 0:
+                    run = false;
                     break;
                 case 1:
                     Tan tanFunc = new Tan();
-                    tanFunc.getInput();
+                    tanFunc.getInput(scanner);
                     break;
                 case 2:
                 case 3:
@@ -53,33 +54,16 @@ public class SuperCalculator {
                 case 5:
                     throw new Exception("function not implmented");
                 case 6:
-                    System.out.println("Entr values x and y separated by a whitespace");
-                    try {
-                        int x; 
-                        int y;
-                        
-                        x = scanner.nextInt();
-                        y = scanner.nextInt();
-
-                        Beta beta = new Beta(x,y);
-                        beta.calculateInUi();
-                        
-                    } catch (InputMismatchException e) {
-                        
-                        printInvalidDomain("Only integers can be use, please try again");
-                        
-                    } catch (Exception e) {
-                        
-                        System.out.println(e.getMessage());
-                        scanner.next();
-                    }
+                    
+                    Beta beta = new Beta();
+                    beta.getInput(scanner);
+                    beta.calculateInUi();
                     break;
+                    
                 default:
                     break;
-
             }
-
         }
-
+        scanner.close();
     }
 }
