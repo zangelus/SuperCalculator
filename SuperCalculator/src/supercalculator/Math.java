@@ -104,7 +104,7 @@ public final class Math {
             value = Double.parseDouble(string);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println(" your input can't be parsed to a number");
+            System.err.println(" your input can't be parsed to a number");
         }
         return false;
     }
@@ -124,7 +124,7 @@ public final class Math {
             value = Integer.parseInt(string);
             return true;
         } catch (NumberFormatException e) {
-            System.out.println(" your input can't be parsed to a number");
+            System.err.println(" your input can't be parsed to a number");
         }
         return false;
     }
