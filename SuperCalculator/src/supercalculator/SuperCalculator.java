@@ -30,6 +30,7 @@ public class SuperCalculator {
             System.out.println("1 Tan(x)");
             System.out.println("3 F3");
             System.out.println("6 Beta(x,y)");
+            System.out.println("7 Power(x,y)");
             System.out.println("0 to exit");
 
             try {
@@ -59,7 +60,10 @@ public class SuperCalculator {
                     beta.getInput(scanner);
                     beta.calculateInUi();
                     break;
-                    
+                case 7:
+                	Power power = new Power();
+                	power.getInput(scanner);
+                	break;
                 default:
                     break;
             }
