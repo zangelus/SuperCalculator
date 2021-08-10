@@ -137,6 +137,5 @@ public class Tan {
                 scanner.next();
             }
         }
-        scanner.close();
     }
 }
