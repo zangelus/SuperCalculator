@@ -1,15 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package supercalculator;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+//import static supercalculator.supercalculator.CalculatorUtils.printInvalidDomain;
 
 /**
  *
- * @author za
+ * @author Nneamaka Adirika
  */
 public class SuperCalculator {
 
@@ -18,15 +15,15 @@ public class SuperCalculator {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        
+
         Scanner scanner = null;
         int selection = 0;
-            
-        while (true) {
+        Boolean run = true;
+        while (run) {
 
-            System.out.println("Enter a function numer");
-            System.out.println("1 F1");
-            System.out.println("3 F3");
+            System.out.println("Enter a function number");
+            System.out.println("1 Tan(x)");
+            System.out.println("3 Gamma(x)");
             System.out.println("6 Beta(x,y)");
             System.out.println("0 to exit");
 
@@ -34,47 +31,28 @@ public class SuperCalculator {
                 scanner = new Scanner(System.in);
                 selection = scanner.nextInt();
 
-            } catch(Exception ex){
+            } catch (Exception ex) {
                 scanner.next();
             }
-            
+
             switch (selection) {
                 case 0:
-                    return;
+                    run = false;
+                    break;
                 case 1:
                 case 2:
                 case 3:
+                    Gamma gammaFunc = new Gamma();
+                    gammaFunc.getInput(scanner);
+                    break;
                 case 4:
                 case 5:
-                    throw new Exception("function not implmented");
+                    throw new Exception("function not implemented");
                 case 6:
-                    System.out.println("Entr values x and y separated by a whitespace");
-                    try {
-                        
-                        int values[] = new int[2];
-                        int i = 0;
-                        int x; 
-                        int y;
-                        
-                        x = scanner.nextInt();
-                        y = scanner.nextInt();
-
-                        F6 f6 = new F6(x,y);
-                        f6.isValidDomain();
-                        double result = f6.calculate();
-                        System.out.println(result);
-                        
-                    } catch (Exception ex) {
-                        scanner.next();
-                    }
-                    break;
                 default:
                     break;
-
             }
-
         }
-
+        scanner.close();
     }
-
 }
