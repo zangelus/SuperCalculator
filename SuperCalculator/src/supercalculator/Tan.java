@@ -122,7 +122,7 @@ public class Tan {
                 x = Double.parseDouble(input);
 
                 //checking if input is within limit
-                if ( (!isRadian && x > 360) || (!isRadian && x< 0)
+                if ( (!isRadian && x > 360) || (!isRadian && x < 0)
                                             || (isRadian && x > 360)
                                             || (isRadian && x > 2 * Math.PI)) {
 
@@ -137,5 +137,6 @@ public class Tan {
                 scanner.next();
             }
         }
+        scanner.close();
     }
 }
