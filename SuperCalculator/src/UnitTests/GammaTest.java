@@ -10,21 +10,28 @@ import supercalculator.Math;
  */
 public class GammaTest {
 
+    
     @Test
     public void TestSimpleGammaFunctionRealNumbers(){
         Gamma gamma = new Gamma(20, 0);
-        assertEquals(2.020790672522353E29, gamma.simpleGamma(),0);
-    }
-    @Test
-    public void TestSimpleGammaFunctionImaginaryNumbers(){
-        Gamma gamma = new Gamma(0, 0.5);
-        assertEquals(Double.POSITIVE_INFINITY, gamma.simpleGamma(),0);
+        assertEquals(3.7981343012008717E17, gamma.simpleGamma(),0);
     }
 
     @Test
-    public void TestSimpleGammaFunctionComplexNumbers(){
+    public void TestSimpleGammaFunctionHelperComplexNumbers(){
         Gamma gamma = new Gamma(13, 2);
-        assertEquals(6.2243881449240858E17, gamma.simpleGamma(),0);
+        assertEquals("1.2829420172378185E9 + 2.0i", gamma.simpleGammaHelper());
+    }
+
+    @Test
+    public void TestSimpleGammaFunctionHelperNumbersNotInDomain(){
+        Gamma gamma = new Gamma(0, 0);
+        assertEquals("0 is not in the domain of the Gamma function", gamma.simpleGammaHelper());
+
+        //test for negative numbers
+        gamma = new Gamma(-2, 0);
+        assertEquals("Negative numbers are not in the domain of Gamma", gamma.simpleGammaHelper());
+
     }
 
 }
