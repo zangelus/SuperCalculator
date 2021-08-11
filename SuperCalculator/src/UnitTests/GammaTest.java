@@ -2,6 +2,8 @@ package supercalculator;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import supercalculator.Gamma;
+import supercalculator.Math;
 
 /**
  * @author Nneamaka Chrysa Adirika
@@ -16,7 +18,7 @@ public class GammaTest {
     @Test
     public void TestSimpleGammaFunctionImaginaryNumbers(){
         Gamma gamma = new Gamma(0, 0.5);
-        assertEquals("Infinity", gamma.simpleGamma());
+        assertEquals(Double.POSITIVE_INFINITY, gamma.simpleGamma(),0);
     }
 
     @Test
