@@ -5,10 +5,13 @@
  */
 package supercalculator;
 
+import Utils.Colors;
+import Utils.Math;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static supercalculator.CalculatorUtils.getOutput;
-import static supercalculator.CalculatorUtils.printOutputMessage;
+import static Utils.CalculatorUtils.getOutput;
+import static Utils.CalculatorUtils.printOutputMessage;
 
 /**
  * Class use to calculate the Beta function of two integers bigger than 0
@@ -21,8 +24,8 @@ public class Beta {
     
     /**
      * Constructor takes the two Integer values use to calculate the Beta function
-     * @param input1 First Integer value to calculate the beta function
-     * @param input2 Second Integer value to calculate the beta function
+     * @param value1 First Integer value to calculate the beta function
+     * @param value2 Second Integer value to calculate the beta function
      */
     public Beta(int value1, int value2){
         
@@ -42,7 +45,7 @@ public class Beta {
             calculateInUi();
             
         } catch (InputMismatchException e) {
-            printOutputMessage(Localization.betaOnlyPositiveIntegers_ENG);
+            printOutputMessage(Localization.betaOnlyPositiveIntegers_ENG, Colors.RED);
         }
     }
     /**
@@ -64,7 +67,7 @@ public class Beta {
             getOutput(calculate());
         }
         catch( InvalidDomainException e){
-            printOutputMessage(Localization.betaInvalidDomain_ENG);
+            printOutputMessage(Localization.betaInvalidDomain_ENG, Colors.RED);
         }
     }
     

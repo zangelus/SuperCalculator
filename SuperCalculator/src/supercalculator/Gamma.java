@@ -1,5 +1,9 @@
 package supercalculator;
 
+import Utils.CalculatorUtils;
+import Utils.Colors;
+import Utils.Math;
+
 import java.util.*;
 /**
  * Gamma class
@@ -87,16 +91,16 @@ public class Gamma {
      * @param in Scanner class initiated in the supercalculator.SuperCalculator class.
      */
     public static void getInput(Scanner in) {
+        double result;
         try {
-            //Scanner in = new Scanner(System.in);
             while (true) {
                 System.out.println("Select one of the following options for the type of number: \n" +
                         "1. real number\n" +
                         "2. complex number\n" +
-                        "3. Quit");
+                        "3. Back to Main Menu");
                 int option = in.nextInt();
                 if(option < 1 || option > 3) {
-                    System.out.println("Number has to be between 1 and 3");
+                    CalculatorUtils.printOutputMessage("Number has to be between 1 and 3", Colors.RED);
                     continue;
                 }
                 switch (option) {
@@ -114,23 +118,25 @@ public class Gamma {
                     case 3:
                         return;
                 }
-                double result;
+
                 if (real <= 0)
-                    System.out.println("Number has to be a positive real or complex number greater than 0");
+                    CalculatorUtils.printMessege("Number has to be a positive real or complex number greater than 0", Colors.RED);
 
                 else {
                     result = simpleGamma();
-                    result = CalculatorUtils.getGammaOutput(result);
+                    result = CalculatorUtils.getOutputDouble(result);
 
-                    if (imaginary <= EPSILON)
-                       CalculatorUtils.printGamma(result+"");
-                    else
-                        CalculatorUtils.printGamma(result + " + " + imaginary + "i");
+                    if (imaginary <= EPSILON) {
+                        CalculatorUtils.printOutputMessage(result + "", Colors.GREEN);
+                    }
+                    else {
+                        CalculatorUtils.printOutputMessage(result + " + " + imaginary + "i", Colors.GREEN);
+                    }
 
                 }
             }
         }catch (InputMismatchException e){
-            System.out.println("Input not allowed, it has to be a positive number.");
+            CalculatorUtils.printOutputMessage("Input not allowed, it has to be a positive number.", Colors.RED);
         }
     }
 

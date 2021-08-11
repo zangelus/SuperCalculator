@@ -1,5 +1,6 @@
-package supercalculator;
+package Utils;
 
+import java.awt.*;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class CalculatorUtils {
     {
         while(true) {
 
-            System.out.println("Please enter the number of decimal places. (n) for No. Value must be > 0");
+            printMessege("Please enter the number of decimal places. (n) for No. Value must be > 0", Colors.YELLOW);
             Scanner scannerInput = new Scanner(System.in);
             String choice = scannerInput.nextLine();
 
@@ -27,11 +28,11 @@ public class CalculatorUtils {
             {
                 try {
                     if (Integer.parseInt(choice) < 0  || choice.matches("^\\d+\\.\\d+") ) {
-                        System.err.println(" Please enter an Integer bigger than 0");
+                        printMessege(" Please enter an Integer bigger than 0", Colors.YELLOW);
                         continue;
                     }
                 }catch(NumberFormatException ex){
-                    System.err.println(" Please enter an Integer bigger than 0");
+                    printMessege(" Please enter an Integer bigger than 0", Colors.RED);
                     continue;
                 }
 
@@ -39,16 +40,18 @@ public class CalculatorUtils {
                 break;
             }
         }
-        printOutputMessage("The result is: " + result);
+        printOutputMessage("The result is: " + result, Colors.GREEN);
 
     }
     
-    public static void printOutputMessage(String message){
-        
+    public static void printOutputMessage(String message, Colors color){
+
+        System.out.print(color);
         System.out.println("___________________________________");
         System.out.println(message);
         System.out.println("___________________________________");
         System.out.println();
+        System.out.print(color.RESET);
         
     }
     /**
@@ -56,11 +59,11 @@ public class CalculatorUtils {
     *@param result  final result that a function produces
     *@return double truncated to desired decimal place
     */
-    public  static double getGammaOutput(double result)
+    public static double getOutputDouble(double result)
     {
         while(true) {
 
-            System.out.println("Please enter the number of decimal places. (n) for No. Value must be > 0");
+            printMessege("Please enter the number of decimal places. (n) for No. Value must be > 0", Colors.YELLOW);
             Scanner scannerInput = new Scanner(System.in);
             String choice = scannerInput.nextLine();
 
@@ -71,11 +74,11 @@ public class CalculatorUtils {
             {
                 try {
                     if (Integer.parseInt(choice) < 0  || choice.matches("^\\d+\\.\\d+") ) {
-                        System.err.println(" Please enter an Integer bigger than 0");
+                        printMessege(" Please enter an Integer bigger than 0", Colors.RED);
                         continue;
                     }
                 }catch(NumberFormatException ex){
-                    System.err.println(" Please enter an Integer bigger than 0");
+                    printMessege(" Please enter an Integer bigger than 0", Colors.RED);
                     continue;
                 }
 
@@ -85,18 +88,12 @@ public class CalculatorUtils {
         }
         return result;
     }
-    
- /**
-     * Gets standard function to output
-     *@param message  final rmessage to be displayed
-     */
-    public  static void printGamma(String message){
 
-        System.out.println("___________________________________");
-        System.out.println(" You answer is " + message);
-        System.out.println("___________________________________");
-        System.out.println();
-
+    public static void printMessege(String msg, Colors color)
+    {
+        System.out.print(color);
+        System.out.println(msg);
+        System.out.print(color.RESET);
     }
 
 }

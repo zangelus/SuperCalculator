@@ -1,6 +1,10 @@
 
 package supercalculator;
 
+import Utils.CalculatorUtils;
+import Utils.Colors;
+import Utils.Math;
+
 import java.util.Scanner;
 /*
  * Tangent class
@@ -91,7 +95,7 @@ public class Tan {
                 answer = scanner.nextLine();
 
                 if (!(answer.equalsIgnoreCase("r") || answer.equalsIgnoreCase("d"))) {
-                    System.err.println("Please Enter R or D only");
+                    CalculatorUtils.printMessege("Please Enter R or D only", Colors.RED);
                     continue;
                 }
 
@@ -115,7 +119,7 @@ public class Tan {
                 input = scanner.nextLine();
 
                 if (!Math.isValueNumericDouble(input)) {
-                    System.err.println("Please enter a valid number");
+                    CalculatorUtils.printMessege("Please enter a valid number", Colors.RED);
                     continue;
                 }
 
@@ -126,7 +130,7 @@ public class Tan {
                                             || (isRadian && x > 360)
                                             || (isRadian && x > 2 * Math.PI)) {
 
-                    System.err.println("Please enter a number between the constrains");
+                    CalculatorUtils.printMessege("Please enter a number between the constrains", Colors.RED);
                     continue;
                 }
                 result = calculate(x, isRadian);
