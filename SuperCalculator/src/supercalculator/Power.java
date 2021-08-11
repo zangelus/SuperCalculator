@@ -91,7 +91,7 @@ public class Power {
 
         /* Handle 0 to the power of 0 special case */
         if(inputBase == 0 && inputPower == 0) {
-            CalculatorUtils.printInvalidDomain(" The answer is indeterminate");
+            CalculatorUtils.printOutputMessage(" The answer is indeterminate");
             
         } else {
             result = calculate(inputBase, inputPower);

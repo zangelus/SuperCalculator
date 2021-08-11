@@ -1,13 +1,12 @@
-/*
+package supercalculator;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package supercalculator;
 
 /**
  *
- * @author za, Haitham Abdel-Salam
+ * @author za, Haitham Abdel-Salam, Nneamaka Adirika
  */
 public final class Math {
 
@@ -29,11 +28,6 @@ public final class Math {
      *@param n integer to calculate its factorial
      */
     public static double calculateFactorial(final int n) {
-        
-        if (n < 0) {
-            return Double.NaN;
-        }
-        
         if (n == 0 || n == 1) {
             return 1.0d;
         }
@@ -62,6 +56,26 @@ public final class Math {
             power = power * value;
         }
 
+        return power;
+    }
+
+    /**
+     * Calculates negative power of a double
+     *@param value  number
+     * @param n power
+     */
+    public static double negativePower( double value, double n) {
+        double power = 1;
+        double n2 = n;
+        if(n < 0)
+            n2 = -1 * n;
+        for (int i = 0; i < n2; i++) {
+            power = power * value;
+        }
+        if(n < 0)
+            return 1.0 / power;
+        if(n == 0)
+            return 1;
         return power;
     }
 
@@ -141,6 +155,43 @@ public final class Math {
 
         return Double.parseDouble(formattedNumber);
     }
-}
 
+    /**
+     * Calculates the sine of a double
+     * @param x the number to be calculated
+     * @return sine value of the double
+     */
+    public static double sine(double x){
+        int startingValue = 3;
+        double calculatedValue = Math.convertDegToRad(x);
+        final int iterations = 20;
+        int multiplier = 1;
+        double total = calculatedValue;
+
+        for (int i = startingValue; i < iterations; i += 2) {
+            multiplier *= -1;
+            double nextTerm = Math.negativePower(calculatedValue, i) / Math.calculateFactorial(i);
+            total += multiplier * nextTerm;
+        }
+
+        return total;
+    }
+    /**
+     * Calculates the square root of a double
+     * @param number the number to be calculated
+     * @return square root of the double
+     */
+    public static double squareRoot(double number) {
+        double t;
+
+        double sqrt = number / 2;
+
+        do {
+            t = sqrt;
+            sqrt = (t + (number / t)) / 2;
+        } while ((t - sqrt) != 0);
+
+        return sqrt;
+    }
+}
 
