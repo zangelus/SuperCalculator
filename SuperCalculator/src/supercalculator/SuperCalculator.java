@@ -6,7 +6,7 @@ import static supercalculator.CalculatorUtils.printOutputMessage;
 
 /**
  *
- * @author Nneamaka Adirika
+ * @author Zbigniew Angelus, Nneamaka Adirika, Haitham Abdel-Salam, Leandro Rodrigues 
  */
 public class SuperCalculator {
 
