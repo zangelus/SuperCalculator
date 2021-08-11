@@ -112,7 +112,7 @@ public class Gamma {
                         imaginary = in.nextDouble();
                         break;
                     case 3:
-                        System.exit(0);
+                        return;
                 }
                 double result;
                 if (real <= 0)
