@@ -1,5 +1,7 @@
 
 import org.junit.Test;
+import supercalculator.*;
+
 import static org.junit.Assert.assertEquals;
 
 /**
