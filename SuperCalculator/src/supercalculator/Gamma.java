@@ -44,7 +44,7 @@ public class Gamma {
      * It is invoked in the getInput method below
      * @return A double representing the gamma of the input value
      */
-    public static double simpleGamma(){
+    public double simpleGamma(){
         double y;
         if(real < 0.5 && real > 0){
             //reflection formula according to Lanczos approximation
