@@ -21,7 +21,7 @@ public class Gamma {
             ,1.5056327351493116e-7};
     public static final double EPSILON = 1e-07;
     public static final double PI = 3.141592653589793;
-    public static final double E = 2.718281828459045;
+    public static final double E = 2.718281828459;
     public static double real;
     public static double imaginary;
 
@@ -44,9 +44,10 @@ public class Gamma {
      * It is invoked in the getInput method below
      * @return A double representing the gamma of the input value
      */
-    public double simpleGamma(){
+    public static double simpleGamma(){
+
         double y;
-        if(real < 0.5 && real > 0){
+        if(real < 0.5){
             //reflection formula according to Lanczos approximation
             real -= 1;
             y = PI / (Math.sine(PI*real) * simpleGamma());
@@ -58,9 +59,26 @@ public class Gamma {
                 x += p[i] / (real + i + 1);
             }
             double t = real + p.length - 0.5;
-            y = Math.squareRoot(2 * PI) * Math.calculatePower(t,real + 0.5) * Math.calculatePower(E,-t) * x;
+            y = Math.squareRoot(2 * PI) * Math.negativePower(t,real + 0.5) * Math.negativePower(E,-t) * x;
         }
         return y;
+    }
+
+    /**
+     * this function helps in the testing the gamma function by calling the main function above
+     * @return a string input that can be unit tested for edge cases
+     */
+    public static String simpleGammaHelper(){
+        if(real == 0){
+            return "0 is not in the domain of the Gamma function";
+        }
+        if(real > 0){
+            if(imaginary > EPSILON){
+                double res = simpleGamma();
+                return res + " + " + imaginary + 'i';
+            }
+        }
+        return "Negative numbers are not in the domain of Gamma";
     }
 
     /**
@@ -74,12 +92,11 @@ public class Gamma {
             while (true) {
                 System.out.println("Select one of the following options for the type of number: \n" +
                         "1. real number\n" +
-                        "2. imaginary number\n" +
-                        "3. complex number\n" +
-                        "4. Quit");
+                        "2. complex number\n" +
+                        "3. Quit");
                 int option = in.nextInt();
-                if(option < 1 || option > 4) {
-                    System.out.println("Number has to be between 1 and 4");
+                if(option < 1 || option > 3) {
+                    System.out.println("Number has to be between 1 and 3");
                     continue;
                 }
                 switch (option) {
@@ -89,22 +106,17 @@ public class Gamma {
                         imaginary = 0;
                         break;
                     case 2:
-                        System.out.println("Enter an imaginary number:");
-                        imaginary = in.nextDouble();
-                        real = 0;
-                        break;
-                    case 3:
                         System.out.println("Enter the real part of the number:");
                         real = in.nextDouble();
                         System.out.println("Enter the imaginary part of the number:");
                         imaginary = in.nextDouble();
                         break;
-                    case 4:
+                    case 3:
                         System.exit(0);
                 }
                 double result;
-                if (real < 0)
-                    System.out.println("Number has to be a positive real or complex number");
+                if (real <= 0)
+                    System.out.println("Number has to be a positive real or complex number greater than 0");
 
                 else {
                     result = simpleGamma();
@@ -121,5 +133,6 @@ public class Gamma {
             System.out.println("Input not allowed, it has to be a positive number.");
         }
     }
+
 
 }
