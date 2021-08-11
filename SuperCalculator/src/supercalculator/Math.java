@@ -60,6 +60,26 @@ public final class Math {
     }
 
     /**
+     * Calculates negative power of a double
+     *@param value  number
+     * @param n power
+     */
+    public static double negativePower( double value, double n) {
+        double power = 1;
+        double n2 = n;
+        if(n < 0)
+            n2 = -1 * n;
+        for (int i = 0; i < n2; i++) {
+            power = power * value;
+        }
+        if(n < 0)
+            return 1.0 / power;
+        if(n == 0)
+            return 1;
+        return power;
+    }
+
+    /**
      * Calculates power of a integers that are only positive
      *@param value  number
      * @param n power
@@ -142,19 +162,19 @@ public final class Math {
      * @return sine value of the double
      */
     public static double sine(double x){
-        double y;
-        y = x*PI/180;
-        int n = 10;
-        int i,j,fac;
-        double res = 0;
-        for(i=0; i<=n; i++){
-            fac = 1;
-            for(j=2; j<=2*i+1; j++){
-                fac*=j;
-            }
-            res+=calculatePower(-1.0,i)*calculatePower(y,2*i+1)/fac;
+        int startingValue = 3;
+        double calculatedValue = Math.convertDegToRad(x);
+        final int iterations = 20;
+        int multiplier = 1;
+        double total = calculatedValue;
+
+        for (int i = startingValue; i < iterations; i += 2) {
+            multiplier *= -1;
+            double nextTerm = Math.negativePower(calculatedValue, i) / Math.calculateFactorial(i);
+            total += multiplier * nextTerm;
         }
-        return res;
+
+        return total;
     }
     /**
      * Calculates the square root of a double
