@@ -2,6 +2,10 @@ package supercalculator;
 
 import java.util.Scanner;
 
+/**
+* 
+*@author Zbigniew Angelus, Nneamaka Adirika, Haitham Abdel-Salam, Leandro Rodrigues
+*/
 public class CalculatorUtils {
 
     /**
@@ -47,7 +51,11 @@ public class CalculatorUtils {
         System.out.println();
         
     }
-    
+    /**
+    * modified output function to be able to print complex number values for the gamma function
+    *@param result  final result that a function produces
+    *@return double truncated to desired decimal place
+    */
     public  static double getGammaOutput(double result)
     {
         while(true) {
@@ -77,7 +85,11 @@ public class CalculatorUtils {
         }
         return result;
     }
-
+    
+ /**
+     * Gets standard function to output
+     *@param message  final rmessage to be displayed
+     */
     public  static void printGamma(String message){
 
         System.out.println("___________________________________");
