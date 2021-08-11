@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static supercalculator.CalculatorUtils.printOutputMessage;
 
 /**
- *
+ * This is the main driver class for all the functions of all group members
  * @author Zbigniew Angelus, Nneamaka Adirika, Haitham Abdel-Salam, Leandro Rodrigues 
  */
 public class SuperCalculator {
