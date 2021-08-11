@@ -108,12 +108,12 @@ public class Gamma {
 
                 else {
                     result = simpleGamma();
-                    CalculatorUtils.getOutput(result);
+                    result = CalculatorUtils.getGammaOutput(result);
 
-                    //if (imaginary <= EPSILON)
-                    //  CalculatorUtils.printInvalidDomain(result+"");
-                    //else
-                    //  CalculatorUtils.printInvalidDomain(result + " + " + imaginary + "i");
+                    if (imaginary <= EPSILON)
+                       CalculatorUtils.printGamma(result+"");
+                    else
+                        CalculatorUtils.printGamma(result + " + " + imaginary + "i");
 
                 }
             }
