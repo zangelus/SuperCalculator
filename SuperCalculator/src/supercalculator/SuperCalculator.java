@@ -1,8 +1,6 @@
 package supercalculator;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import static supercalculator.CalculatorUtils.printOutputMessage;
 
 /**
  * This is the main driver class for all the functions of all group members
@@ -14,8 +12,11 @@ public class SuperCalculator {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        // TODO code application logic here
+        Init();
+    }
 
+    private  static  void Init()
+    {
         Scanner scanner = null;
         int selection = 0;
         Boolean run = true;
@@ -65,4 +66,5 @@ public class SuperCalculator {
             scanner.close();
         }
     }
+
 }

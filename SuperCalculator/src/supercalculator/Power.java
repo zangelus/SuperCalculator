@@ -7,6 +7,9 @@
 
 package supercalculator;
 
+import Utils.CalculatorUtils;
+import Utils.Colors;
+
 import java.util.Scanner;
 
 /**
@@ -64,7 +67,7 @@ public class Power {
             try {
                 inputBase = scanner.nextDouble();
             } catch (Exception ex) {
-                System.out.println("ERROR! Make sure you type a number!");
+                CalculatorUtils.printMessege("ERROR! Make sure you type a number!", Colors.RED);
                 continue;
             }
 
@@ -77,12 +80,12 @@ public class Power {
             try {
                 inputPower = scanner.nextInt();
             } catch (Exception ex) {
-                System.out.println("ERROR! Make sure you type a positive integer or zero!");
+                CalculatorUtils.printMessege("ERROR! Make sure you type a positive integer or zero!", Colors.RED);
                 continue;
             }
 
             if(inputPower < 0) {
-                System.out.println("ERROR! Make sure you type a positive integer or zero!");
+                CalculatorUtils.printOutputMessage("ERROR! Make sure you type a positive integer or zero!", Colors.RED);
                 continue;
             }
 
@@ -91,7 +94,7 @@ public class Power {
 
         /* Handle 0 to the power of 0 special case */
         if(inputBase == 0 && inputPower == 0) {
-            CalculatorUtils.printOutputMessage(" The answer is indeterminate");
+            CalculatorUtils.printOutputMessage(" The answer is indeterminate", Colors.GREEN);
             
         } else {
             result = calculate(inputBase, inputPower);

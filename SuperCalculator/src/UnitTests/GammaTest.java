@@ -1,8 +1,6 @@
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import supercalculator.Gamma;
-import supercalculator.Math;
 
 /**
  * @author Nneamaka Chrysa Adirika
