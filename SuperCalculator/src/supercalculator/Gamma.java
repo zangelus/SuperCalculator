@@ -1,6 +1,6 @@
 package supercalculator;
 
-import java.util.*;
+
 /**
  * Gamma class
  * @author Nneamaka Adirika
@@ -108,12 +108,12 @@ public class Gamma {
 
                 else {
                     result = simpleGamma();
-                    result = CalculatorUtils.getOutput(result);
+                    CalculatorUtils.getOutput(result);
 
-                    if (imaginary <= EPSILON)
-                        CalculatorUtils.printInvalidDomain(result+"");
-                    else
-                        CalculatorUtils.printInvalidDomain(result + " + " + imaginary + "i");
+                    //if (imaginary <= EPSILON)
+                    //  CalculatorUtils.printInvalidDomain(result+"");
+                    //else
+                    //  CalculatorUtils.printInvalidDomain(result + " + " + imaginary + "i");
 
                 }
             }

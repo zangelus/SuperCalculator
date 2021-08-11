@@ -23,7 +23,7 @@ public class SuperCalculator {
 
             System.out.println("Enter a function number");
             System.out.println("1. Tan(x)");
-            System.out.println("2. Gamma(x,y)");
+            System.out.println("2. Gamma(x)");
             System.out.println("3. Beta(x,y)");
             System.out.println("4. Power(x,y)");
             System.out.println("0. Exit application");
