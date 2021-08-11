@@ -5,8 +5,8 @@ package supercalculator;/*
  */
 
 /**
- *
- * @author za, Haitham Abdel-Salam, Nneamaka Adirika
+ *This is the implementation of all additional functions needed for assigned function calculation
+ * @author Zbigniew Angelus, Nneamaka Adirika, Haitham Abdel-Salam, Leandro Rodrigues
  */
 public final class Math {
 
