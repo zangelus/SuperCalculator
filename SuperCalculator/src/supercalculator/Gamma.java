@@ -1,6 +1,6 @@
 package supercalculator;
 
-
+import java.util.*;
 /**
  * Gamma class
  * @author Nneamaka Adirika
