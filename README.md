@@ -10,7 +10,7 @@ Description:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Oracle code convention](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html)
 
 ### Pseudocode standard
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CalPoly pseudocode convention](https://users.csc.calpoly.edu/~jdalbey/SWE/pdl_std.html)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CalPoly pseudocode convention](https://student.cs.uwaterloo.ca/~cs231/resources/pseudocode.pdf)
 
 ### Test standard
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Microsoft unit testing best practices](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
